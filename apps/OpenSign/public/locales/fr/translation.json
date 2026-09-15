@@ -1649,5 +1649,6 @@
     "sign-yourself": "Note à moi-même",
     "request-signatures": "Veuillez examiner et signer ce document"
   },
-  "select-placeholder": "Sélectionner..."
+  "select-placeholder": "Sélectionner...",
+  "archive" : "Archive"
 }

@@ -943,7 +943,7 @@ function PdfRequestFiles(
                       ? `&completed=true`
                       : "";
                     const params =
-                          `docid=${updatedDoc.updatedPdfDetails[0].objectId}&docurl=${encodeURIComponent(url)}${isCompleted}${fileAdapter}`;
+                          `docid=${updatedDoc.updatedPdfDetails[0].objectId}&docurl=${encodeURIComponent(url)}${isCompleted}${fileAdapter}&docname=${updatedDoc.updatedPdfDetails?.[0].Name}`;
                     window.location.href = `/success?${params}`;
                   }
                 } else {

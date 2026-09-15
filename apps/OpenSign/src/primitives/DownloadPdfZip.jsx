@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ModalUi from "./ModalUi";
+import i18n from "../i18n";
 import {
   getSignedUrl,
   handleDownloadCertificate,
   handleDownloadPdf,
   fileNameWithUnderscore
 } from "../constant/Utils";
+import {
+  buildDownloadFilename
+} from "../utils";
 import Loader from "./Loader";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
@@ -40,7 +44,13 @@ function DownloadPdfZip(props) {
           ? pdfDetails?.[0]?.Name?.slice(0, 100)
           : pdfDetails?.[0]?.Name || "Document";
       const pdfUrl = pdfDetails?.[0]?.SignedUrl || "";
-
+      const formatId = pdfDetails?.[0]?.ExtUserPtr?.DownloadFilenameFormat;
+      const isCompleted = pdfDetails?.[0]?.IsCompleted || false;
+      const docName = buildDownloadFilename(formatId, {
+          docName: pdfName,
+          email: pdfDetails?.[0]?.ExtUserPtr?.Email,
+          isSigned: isCompleted
+        });
       try {
         // Fetch the first PDF (Signed Document)
         const docId = pdfDetails?.[0]?.objectId || "";
@@ -67,15 +77,15 @@ function DownloadPdfZip(props) {
         const pdf2Blob = await pdf2Response.blob();
           // Add files to ZIP
           zip.file(
-            `${fileNameWithUnderscore(pdfName)}_signed_by_${appName}.pdf`,
+            `${docName}`,
             pdf1Blob
           );
-          zip.file(`Certificate_signed_by_${appName}.pdf`, pdf2Blob);
+          zip.file(`${i18n.t("certificate")} ${docName}`, pdf2Blob);
           // Generate the ZIP and trigger download
           const zipBlob = await zip.generateAsync({ type: "blob" });
           saveAs(
             zipBlob,
-            `${fileNameWithUnderscore(pdfName)}_signed_by_${appName}.zip`
+            `${i18n.t("archive")} ${pdfName}.zip`
           );
         setSelectType(1);
         props.setIsDownloadModal(false);

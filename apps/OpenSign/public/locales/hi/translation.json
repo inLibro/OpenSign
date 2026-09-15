@@ -1648,5 +1648,6 @@
     "sign-yourself": "अपने लिए नोट",
     "request-signatures": "कृपया इस दस्तावेज़ की समीक्षा करें और हस्ताक्षर करें"
   },
-  "select-placeholder": "चुनें..."
+  "select-placeholder": "चुनें...",
+  "archive" : "आर्काइव"
 }

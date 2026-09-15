@@ -1648,5 +1648,6 @@
     "sign-yourself": "Nota para mí mismo",
     "request-signatures": "Por favor, revise y firme este documento"
   },
-  "select-placeholder": "Seleccionar..."
+  "select-placeholder": "Seleccionar...",
+  "archive" : "Archivo"
 }
