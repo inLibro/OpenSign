@@ -1648,5 +1648,6 @@
     "sign-yourself": "Note to myself",
     "request-signatures": "Please review and sign this document"
   },
-  "select-placeholder": "Select..."
+  "select-placeholder": "Select...",
+  "archive" : "Archive"
 }
