@@ -33,11 +33,13 @@ const DocSuccessPage = () => {
     const search = window.location.search.split("?")[1];
     if (search) {
       const urlParams = new URLSearchParams(search);
+      const docName = urlParams.get("docname") || "DocumentName";
       const docId = urlParams.get("docid");
       const docUrl = urlParams.get("docurl");
       const certificate = urlParams.get("certificate");
-      const completed = urlParams?.get("completed") || false;
+      const completed = urlParams?.get("completed") == "true" || false;
       const details = {
+        Name: docName,
         objectId: docId,
         SignedUrl: docUrl,
         CertificateUrl: certificate,
