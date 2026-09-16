@@ -1649,5 +1649,12 @@
     "request-signatures": "Si prega di esaminare e firmare questo documento"
   },
   "select-placeholder": "Seleziona...",
-  "archive" : "Archivio"
+  "archive" : "Archivio",
+  "prefill-by-owner": "Precompilato dal proprietario",
+  "upload-stamp": "Carica timbro",
+  "select-date": "Seleziona data",
+  "optional-reason": "Motivo (facoltativo)",
+  "stamp": "Timbro",
+  "Title": "Titolo",
+  "unsaved": "Non salvato"
 }

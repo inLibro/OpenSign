@@ -11,13 +11,14 @@ import {
   getSignedUrl
 } from "../constant/Utils";
 import { PDFDocument } from "pdf-lib";
+import i18n from "../i18n";
 
 export const prefillBlockColor = "transparent";
 export const prefillObj = (id) => {
   const obj = {
     Id: id || randomId(),
     Role: "prefill",
-    Name: "Prefill by owner",
+    Name: i18n.t("prefill-by-owner"),
     blockColor: prefillBlockColor
   };
 

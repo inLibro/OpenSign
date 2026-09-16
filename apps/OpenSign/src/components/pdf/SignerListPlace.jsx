@@ -15,7 +15,7 @@ function SignerListPlace(props) {
     <div>
       <div className="mx-2 pr-2 pt-2 pb-1 text-[15px] text-base-content font-semibold border-b-[1px] border-base-300">
         <span className="relative">
-          {props.title ? props.title : "Recipients"}
+          {props.title ? props.title : t("recipients")}
           <sup onClick={() => props.setIsTour && props.setIsTour(true)}>
             <i className="ml-1 cursor-pointer fa-light fa-question rounded-full border-[1px] border-base-content text-[11px] py-[1px] px-[3px]"></i>
           </sup>

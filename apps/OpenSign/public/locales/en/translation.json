@@ -1649,5 +1649,12 @@
     "request-signatures": "Please review and sign this document"
   },
   "select-placeholder": "Select...",
-  "archive" : "Archive"
+  "archive" : "Archive",
+  "Title": "Title",
+  "unsaved": "Unsaved",
+  "prefill-by-owner": "Prefill by owner",
+  "upload-stamp": "Upload stamp",
+  "select-date" : "Select date",
+  "optional-reason": "Reason (optional)",
+  "stamp": "Stamp"
 }

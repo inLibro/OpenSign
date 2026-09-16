@@ -1616,7 +1616,7 @@ const DocumentsReport = (props) => {
                             <div className="mt-2">
                               <textarea
                                 rows={3}
-                                placeholder="Reason (optional)"
+                                placeholder={t("optional-reason")}
                                 className="px-4 op-textarea op-textarea-bordered text-base-content focus:outline-none hover:border-base-content w-full text-xs"
                                 value={reason}
                                 onChange={(e) => setReason(e.target.value)}
