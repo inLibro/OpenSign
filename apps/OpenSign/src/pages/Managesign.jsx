@@ -489,7 +489,7 @@ const ManageSign = () => {
             </div>
             <div>
               <span className="font-medium select-none flex mb-[10px] pl-[10px]">
-                Stamp
+                {t("stamp")}
               </span>
 
               <div

@@ -1649,5 +1649,12 @@
     "request-signatures": "이 문서를 검토하고 서명해 주세요"
   },
   "select-placeholder": "선택...",
-  "archive" : "아카이브"
+  "archive" : "아카이브",
+  "prefill-by-owner": "소유자가 미리 입력",
+  "upload-stamp": "도장 업로드",
+  "select-date": "날짜 선택",
+  "optional-reason": "사유 (선택 사항)",
+  "stamp": "도장",
+  "Title": "제목",
+  "unsaved": "저장되지 않음"
 }

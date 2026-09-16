@@ -1649,5 +1649,12 @@
     "request-signatures": "Veuillez examiner et signer ce document"
   },
   "select-placeholder": "Sélectionner...",
-  "archive" : "Archive"
+  "archive" : "Archive",
+  "Title": "Titre",
+  "unsaved": "Non sauvegardé",
+  "prefill-by-owner": "Prérempli par le propriétaire",
+  "upload-stamp": "Téléverser un tampon",
+  "select-date" : "Sélectionner une date",
+  "optional-reason": "Raison (optionnel)",
+  "stamp": "Tampon"
 }

@@ -292,7 +292,7 @@ const EditTemplate = ({
   return (
     <ModalUi
       isOpen
-      title={isUpdate ? `${title} (unsaved)` : title}
+      title={isUpdate ? `${title} (${t("unsaved")})` : title}
       handleClose={handleEditTemplateClose}
     >
       <ModalUi isOpen={showConfirm} showClose={false}>

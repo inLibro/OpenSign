@@ -1649,5 +1649,13 @@
     "request-signatures": "Por favor, revise y firme este documento"
   },
   "select-placeholder": "Seleccionar...",
-  "archive" : "Archivo"
+  "archive" : "Archivo",
+  "prefill-by-owner": "Rellenado por el propietario",
+  "upload-stamp": "Subir sello",
+  "select-date": "Seleccionar fecha",
+  "optional-reason": "Motivo (opcional)",
+  "stamp": "Sello",
+  "Title": "Título",
+  "unsaved": "Sin guardar"
+
 }

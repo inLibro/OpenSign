@@ -1648,5 +1648,12 @@
     "request-signatures": "Bitte überprüfen und unterschreiben Sie dieses Dokument"
   },
   "select-placeholder": "Auswählen...",
-  "archive" : "Archiv"
+  "archive" : "Archiv",
+  "prefill-by-owner": "Vom Eigentümer vorausgefüllt",
+  "upload-stamp": "Stempel hochladen",
+  "select-date": "Datum auswählen",
+  "optional-reason": "Grund (optional)",
+  "stamp": "Stempel",
+  "Title": "Titel",
+  "unsaved": "Nicht gespeichert"
 }

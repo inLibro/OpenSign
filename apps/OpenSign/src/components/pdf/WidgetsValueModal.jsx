@@ -1021,7 +1021,7 @@ function WidgetsValueModal(props) {
       onClick={onClick}
       ref={ref}
     >
-      {value ? value : "Select date"}
+      {value ? value : t("select-date")}
       <i className="fa-light fa-calendar ml-[5px]"></i>
     </div>
   ));
@@ -1284,7 +1284,7 @@ function WidgetsValueModal(props) {
       // Upload Stamp Tab
       {
         id: "uploadStamp",
-        label: "Upload stamp",
+        label: t("upload-stamp"),
         onClick: () => setIsTab("uploadStamp"),
         show: currWidgetsDetails?.type === "stamp",
         render: () => (
