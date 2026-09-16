@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import https from 'https';
+import http from 'http';
 import formData from 'form-data';
 import Mailgun from 'mailgun.js';
 import { appName, smtpenable, smtpsecure, updateMailCount } from '../../Utils.js';
@@ -56,39 +57,43 @@ async function sendMailProvider(params) {
       try {
         let Pdf = fs.createWriteStream(testPdf);
         const writeToLocalDisk = () => {
-          return new Promise((resolve, reject) => {
-            const isSecure =
-              new URL(params.url)?.protocol === 'https:' &&
-              new URL(params.url)?.hostname !== 'localhost';
-            if (isSecure) {
-              https
-                .get(params.url, async function (response) {
-                  response.pipe(Pdf);
-                  response.on('end', () => resolve('success'));
-                })
-                .on('error', e => {
-                  console.error(`error: ${e.message}`);
+          const url = new URL(params.url);
+
+          return new Promise(resolve => {
+            let localUrl = params.url.replace(
+              `//${url.hostname}/api`,
+              '//localhost:8080'
+            );
+
+            localUrl = localUrl.replace('https://', 'http://');
+
+            http
+              .get(localUrl, response => {
+                if (response.statusCode !== 200) {
+                  console.error(
+                    `Failed to download file: HTTP ${response.statusCode}`
+                  );
+
+                  response.resume();
+                  resolve('error');
+                  return;
+                }
+
+                response.pipe(Pdf);
+
+                Pdf.on('finish', () => {
+                  resolve('success');
+                });
+
+                Pdf.on('error', e => {
+                  console.error(`Error writing file: ${e.message}`);
                   resolve('error');
                 });
-            } else {
-              const httpsAgent = new https.Agent({ rejectUnauthorized: false }); // Disable SSL validation
-              const localUrl = params.url;
-              const newlocalUrl = localUrl.replace(
-                'https://localhost:3001/api',
-                'http://localhost:8080'
-              );
-              axios
-                .get(newlocalUrl, { responseType: 'stream', httpsAgent: httpsAgent })
-                .then(response => {
-                  response.data.pipe(Pdf);
-                  Pdf.on('finish', () => resolve('success'));
-                  Pdf.on('error', () => resolve('error'));
-                })
-                .catch(e => {
-                  console.log('error in localurl', e.message);
-                  resolve('error');
-                });
-            }
+              })
+              .on('error', e => {
+                console.error(`Error in localurl: ${e.message}`);
+                resolve('error');
+              });
           });
         };
         // `writeToLocalDisk` is used to create pdf file from doc url
